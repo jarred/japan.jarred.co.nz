@@ -1,0 +1,21 @@
+.map{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.map-item{
+  z-index: 999;
+  border-radius: 50%;
+  width: 36px !important;
+  height: 36px !important;
+  margin-left: -18px !important;
+  margin-top: -18px !important;
+}
+
+.map-emoji{
+  width: 36px;
+  height: 36px;
+}

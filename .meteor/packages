@@ -9,3 +9,6 @@ autopublish
 insecure
 iron:router
 fourseven:scss@=2.0.0-beta_1
+jquery
+underscore
+fuatsengul:leaflet

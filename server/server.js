@@ -1,1 +1,2 @@
-var Item = new Meteor.Collection('items');
+var Items           = new Meteor.Collection('items');
+var Categories      = new Meteor.Collection('categories');

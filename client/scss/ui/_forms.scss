@@ -1,0 +1,19 @@
+fieldset{
+  border: 0;
+  margin-bottom: 10px;
+}
+
+.btn{
+  border: 0;
+  background-color: $red;
+  padding: 10px;
+  color: $white;
+  font: 400 10px/1 $sans;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn--full{
+  display: block;
+  width: 100%;
+}

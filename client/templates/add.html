@@ -1,17 +1,20 @@
 <template name="add">
-  <form>
+  <form class="add">
     <fieldset>
-      <select name="category">
-
+      <select name="category" class="add-input js-category">
+        <option disabled selected>category</option>
+        {{#each categories}}
+          <option value="{{ _id }}">{{ name }}</option>
+        {{/each}}
+        <option disabled>----</option>
+        <option value="new">new category</option>
       </select>
     </fieldset>
     <fieldset>
-      <input type="number" name="amount" />
+      <input class="input add-input js-quantity" type="number" name="amount" placeholder="amount" value="1" />
     </fieldset>
     <fieldset>
-      <input type="text" name="address" />
-      <br />
-      <button>use my location</button>
+      <button class="btn btn--full" type="submit">save</button>
     </fieldset>
   </form>
 </template>
