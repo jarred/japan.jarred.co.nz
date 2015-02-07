@@ -1,13 +1,15 @@
-Template.add.rendered = function (){
-  Tracker.autorun(function(computation){
-    var status = Meteor.status();
-    if(status.connected){
-      $('.js-site-preloader').remove();
-    }
-  });
+Template.Add.rendered = function (){
+  $('.js-site-preloader').remove();
 }
 
-Template.add.helpers({
+Meteor.startup(function (){
+  if (navigator.geolocation) {
+  }else{
+    alert('you need to use safari');
+  }
+});
+
+Template.Add.helpers({
   items: function(){
     var items = Items.find().fetch();
     _.each(items, function(item){
@@ -19,7 +21,7 @@ Template.add.helpers({
   categories: Categories.find()
 });
 
-Template.add.events({
+Template.Add.events({
   'submit form': function(e){
     e.preventDefault();
     if($('.js-category').val() === null){

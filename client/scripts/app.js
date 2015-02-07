@@ -3,6 +3,7 @@ Categories    = new Meteor.Collection('categories');
 
 Router.map( function () {
   this.route('add');
+  this.route('edit');
   this.route('home', {
     path: '/'
   });

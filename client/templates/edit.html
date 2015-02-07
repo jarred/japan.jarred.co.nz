@@ -1,0 +1,24 @@
+<template name="Edit">
+  {{#each items}}
+    <form class="js-edit-form">
+      <fieldset>
+        <select name="category">
+          <option>{{category_name}}</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <input type="number" name="quantity" value="{{quantity}}" />
+      </fieldset>
+      <fieldset>
+        <label>latitude</label>
+        <input type="number" name="lat" value="{{lat}}" />
+      </fieldset>
+      <fieldset>
+        <label>longitude</label>
+        <input type="number" name="long" value="{{long}}" />
+      </fieldset>
+      <a class="js-delete-item" data-id="{{_id}}">delete</a>
+    </form>
+    <hr />
+  {{/each}}
+</template>
