@@ -10,6 +10,7 @@ Template.home.rendered = function () {
       $('.js-site-preloader').remove();
       var items = Items.find().fetch();
       var lastItem = items[items.length - 1]
+      console.log(lastItem);
       map.setView([lastItem.lat, lastItem.long], 17);
       _.each(items, function(item){
         var category = Categories.findOne(item.category);
