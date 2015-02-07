@@ -11,13 +11,13 @@
       </fieldset>
       <fieldset>
         <label>latitude</label>
-        <input type="number" name="lat" value="{{lat}}" />
+        <input type="number" name="lat" value="{{lat}}" step="any" />
       </fieldset>
       <fieldset>
         <label>longitude</label>
-        <input type="number" name="long" value="{{long}}" />
+        <input type="number" name="long" value="{{long}}" step="any" />
       </fieldset>
-      <a class="js-delete-item" data-id="{{_id}}">delete</a>
+      <button class="submit btn">update</button> / <a class="js-delete-item" data-id="{{_id}}">delete</a>
     </form>
     <hr />
   {{/each}}

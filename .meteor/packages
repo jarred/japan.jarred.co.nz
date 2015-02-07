@@ -12,3 +12,4 @@ fourseven:scss@=2.0.0-beta_1
 jquery
 underscore
 pauloborges:mapbox
+fastclick

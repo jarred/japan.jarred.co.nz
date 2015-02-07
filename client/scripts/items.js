@@ -22,23 +22,29 @@ Template.Add.helpers({
 });
 
 Template.Add.events({
+  'click .js-use-location': function(e){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function (position){
+        $('.js-lat').val(position.coords.latitude);
+        $('.js-long').val(position.coords.longitude);
+      });
+    }else{
+      alert('your browser doesn\'t support geolocation. Try safari.');
+    }
+  },
   'submit form': function(e){
     e.preventDefault();
     if($('.js-category').val() === null){
       return;
     }
-    navigator.geolocation.getCurrentPosition(function (position){
-      data = {
-        category: $('.js-category').val(),
-        quantity: $('.js-quantity').val(),
-        long: position.coords.longitude,
-        lat: position.coords.latitude
-      };
-      console.log(data);
-      Items.insert(data, function(error, _id){
-        console.log(arguments);
-        alert('saved!');
-      });
+    data = {
+      category: $('.js-category').val(),
+      quantity: Number($('.js-quantity').val()),
+      long: Number($('.js-long').val()),
+      lat: Number($('.js-lat').val())
+    };
+    Items.insert(data, function(error, _id){
+      window.location.pathname = '/';
     });
   },
   'change .js-category': function(e){

@@ -9,6 +9,7 @@ Template.Home.rendered = function () {
       var map = L.mapbox.map('map', 'jarred.l57oo794');
       $('.js-site-preloader').remove();
       var items = Items.find().fetch();
+      console.log('items', items);
       if(items.length === 0){
         return;
       }
