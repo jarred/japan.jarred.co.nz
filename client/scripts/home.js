@@ -18,7 +18,7 @@ Template.Home.helpers({
 
 Template.Home.events({
   'click .js-stat': function(e){
-    Map.setView([this.lat, this.long], 13);
+    Map.setView([this.lat, this.long], 17);
   }
 })
 
