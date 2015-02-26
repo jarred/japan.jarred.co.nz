@@ -1,3 +1,5 @@
+var Map = null;
+
 Meteor.startup(function(){
     Mapbox.load();
 });
@@ -14,19 +16,24 @@ Template.Home.helpers({
   categories: Categories.find()
 });
 
+Template.Home.events({
+  'click .js-stat': function(e){
+    Map.setView([this.lat, this.long], 13);
+  }
+})
+
 Template.Home.rendered = function () {
   this.autorun(function () {
     if (Mapbox.loaded()) {
       L.mapbox.accessToken = 'pk.eyJ1IjoiamFycmVkIiwiYSI6ImhGcFIwRXMifQ.Gnlr8HDrlR7NlDhUY081lA';
-      var map = L.mapbox.map('map', 'jarred.l57oo794');
+      Map = L.mapbox.map('map', 'jarred.l57oo794');
       $('.js-site-preloader').remove();
       var items = Items.find().fetch();
-      console.log('items', items);
       if(items.length === 0){
         return;
       }
       var lastItem = items[items.length - 1]
-      map.setView([lastItem.lat, lastItem.long], 13);
+      Map.setView([lastItem.lat, lastItem.long], 13);
       _.each(items, function(item){
         var category = Categories.findOne(item.category);
         console.log(item);
@@ -35,9 +42,9 @@ Template.Home.rendered = function () {
           html: "<div class=\"map-emoji twa-" + category.name + "\"></div>"
         });
         if(item.lat !== undefined){
-          L.marker([item.lat, item.long], {icon: icon}).addTo(map)
+          L.marker([item.lat, item.long], {icon: icon}).addTo(Map)
         }else{
-          L.marker([item.position.lat, item.position.long], {icon: icon}).addTo(map)
+          L.marker([item.position.lat, item.position.long], {icon: icon}).addTo(Map)
         }
       });
     }

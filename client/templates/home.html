@@ -1,13 +1,15 @@
 <template name="Home">
   <div class="stats">
-    <div class="stat">
+
       {{#each items}}
+      <div class="stat js-stat">
         <span class="twa-{{category_name}} stat-illustration"></span>
         <span class="stat-count">{{quantity}}</span>
         <br />
         {{category_name}}
+        </div>
       {{/each}}
-    </div>
+
   </div>
   <div class="map" id="map"></div>
 </template>
